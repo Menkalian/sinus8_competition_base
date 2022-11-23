@@ -112,3 +112,34 @@ Found 8 outliers among 100 measurements (8.00%)
   4 (4.00%) high severe
 
 ````
+
+## 4. Verwendung von i32 als Wertebereich
+````
+Benchmarking sinus8 8 Bytes
+Benchmarking sinus8 8 Bytes: Warming up for 3.0000 s
+Benchmarking sinus8 8 Bytes: Collecting 100 samples in estimated 5.0001 s (344M iterations)
+Benchmarking sinus8 8 Bytes: Analyzing
+sinus8 8 Bytes          time:   [14.460 ns 14.498 ns 14.540 ns]
+Found 7 outliers among 100 measurements (7.00%)
+  3 (3.00%) low mild
+  2 (2.00%) high mild
+  2 (2.00%) high severe
+
+Benchmarking sinus8 readable ascii
+Benchmarking sinus8 readable ascii: Warming up for 3.0000 s
+Benchmarking sinus8 readable ascii: Collecting 100 samples in estimated 5.0002 s (100M iterations)
+Benchmarking sinus8 readable ascii: Analyzing
+sinus8 readable ascii   time:   [50.838 ns 51.100 ns 51.399 ns]
+Found 16 outliers among 100 measurements (16.00%)
+  8 (8.00%) high mild
+  8 (8.00%) high severe
+
+Benchmarking sinus8 large data
+Benchmarking sinus8 large data: Warming up for 3.0000 s
+Benchmarking sinus8 large data: Collecting 100 samples in estimated 5.3666 s (1200 iterations)
+Benchmarking sinus8 large data: Analyzing
+sinus8 large data       time:   [4.3783 ms 4.3969 ms 4.4187 ms]
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+````

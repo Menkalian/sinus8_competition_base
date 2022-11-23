@@ -47,25 +47,16 @@ pub fn sinus8(data: &str) -> u8 {
     //     hash
     // } else {
         // avoid threading overhead
-        let mut sin_cumul = [0.0; SINUS_GRADE];
+        let mut sin_cumul = [0; SINUS_GRADE];
 
         for i in 0..bytes.len() {
-            let b = bytes[i];
-            let idx = i % SINUS_GRADE;
-            sin_cumul[idx] += SIN_LUT[b as usize];
-            if sin_cumul[idx].abs() > 1.0 {
-                if sin_cumul[idx] > 0.0 {
-                    sin_cumul[idx] = sin_cumul[idx] % 1.0 - 1.0;
-                } else {
-                    sin_cumul[idx] = sin_cumul[idx] % 1.0 + 1.0;
-                }
-            }
+            sin_cumul[i % SINUS_GRADE] += SIN_LUT[bytes[i] as usize];
         }
 
         let mut hash: u8 = 0;
         for i in 0..SINUS_GRADE {
             hash = hash << 1;
-            if sin_cumul[i] > 0.0 {
+            if sin_cumul[i] > 0 {
                 hash += 1;
             }
         }
